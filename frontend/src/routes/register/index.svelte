@@ -3,7 +3,7 @@
     import RegisterForm from '../../component/RegisterForm.svelte'
 </script>
 
-<Center backgroundColor="yellow">
+<Center>
     <RegisterForm />
 </Center>
 
