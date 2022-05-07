@@ -3,6 +3,7 @@
     export let height: string | number = "unset";
     export let backgroundColor: string = "unset";
     export let borderRadius: string | number= "unset";
+    export let margin: string | number = "unset";
     export let marginTop: string | number = "unset";
     export let marginLeft: string | number = "unset";
     export let marginRight: string | number = "unset";
@@ -16,6 +17,7 @@
             margin-top: {typeof marginTop === "string" ? marginTop : marginTop + "px"};
             margin-left: {typeof marginLeft === "string" ? marginLeft : marginLeft + "px"};
             margin-right: {typeof marginRight === "string" ? marginRight : marginRight + "px"};
+            margin: {typeof margin === "string" ? margin : margin + "px"};
             ">
         <slot />
 </div>
