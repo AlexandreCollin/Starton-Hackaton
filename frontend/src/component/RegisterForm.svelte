@@ -38,6 +38,11 @@
                 http.register(user);
             }
         }}>Create account</button>
+        <small class="small-login-message">
+            <a href="/login">
+                Already registered ?
+            </a>
+        </small>
         </Column>
     </Center>
 </SizedBox>
@@ -46,6 +51,12 @@
     .fst-label {
         margin-top: 20px;
         margin-left: 50px;
+    }
+    .small-login-message {
+        color: rgb(0, 85, 128);
+        margin-left: 80px;
+        margin-top: 5px;
+        font-size: 15px;
     }
     .input-style {
         justify-content:center;
