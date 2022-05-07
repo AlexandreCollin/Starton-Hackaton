@@ -4,7 +4,7 @@ type User = {
 };
 
 type LoginUser = {
-    waller: string,
+    wallet: string,
     password: string
 }
 

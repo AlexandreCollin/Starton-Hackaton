@@ -2,26 +2,33 @@
     import Center from '../lib/Center.svelte';
     import SizedBox from '../lib/SizedBox.svelte';
     import Column from '../lib/Column.svelte';
-
-    let pseudo:string = "";
-    let password:string = "";
-
-    function handleClick() {
-        console.log("CONNEXION")
-    }
+    import type { LoginUser } from '../models/user';
+    import http from '../service/http';
+    
+    let user: LoginUser = {
+        wallet: "",
+        password: ""
+    };
+    let empty: boolean = false;
 </script>
 
 <SizedBox backgroundColor=white width={500} height={670} marginTop=95px borderRadius=25px>
     <SizedBox backgroundColor="black" borderRadius=100px width={150} height={150} marginLeft=175px marginTop=50px/>
     <Center>
             <Column>
-                <label class="fst-label" for="pseudo">Pseudo</label>
-                <input class="input-style" id="pseudo" bind:value={pseudo} type="text">
+                <label class="fst-label" for="pseudo">Wallet</label>
+                <input class="input-style" id="pseudo" bind:value={user.wallet} type="text">
                 <label class="fst-label" for="password">Password</label>
-                <input class="input-style" id="password" bind:value={password} type="text">
-                <button class="button-style" on:click|once={handleClick}>
-                    Connexion
-                </button>
+                <input class="input-style" id="password" bind:value={user.password} type="text">
+                {#if empty}
+                    <small style="color:red;">A field is empty</small>
+                {/if}
+                <button class="button-style" on:click={() => {
+                    if (user.wallet === "" || user.password === "") {
+                        empty = true;
+                    } else
+                    http.login(user);
+                }}>Connexion</button>
             </Column>
     </Center>
 </SizedBox>
