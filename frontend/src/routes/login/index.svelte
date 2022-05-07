@@ -1,11 +1,9 @@
 <script lang="ts">
-    import Center from '../../lib/Center.svelte'
-    import LoginForm from '../../component/RegisterForm.svelte'
+    import LoginForm from '../../component/LoginForm.svelte'
 </script>
 
-<Center backgroundColor="yellow">
-    <LoginForm />
-</Center>
+
+<LoginForm />
 
 <style>
 

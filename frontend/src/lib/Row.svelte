@@ -5,12 +5,14 @@
     export let justifyContent: string = "";
     export let alignItems: string = "";
     export let height: string | number = "";
+    export let width: string | number = "";
     export let minWidth: string | number = "";
     export let margin: string | number = "";
     export let marginTop: string | number = 0;
     export let marginRight: string | number = 0;
     export let marginLeft: string | number = 0;
     export let marginBottom: string | number = 0;
+    export let backgroundColor: string = "unset";
 </script>
 
 <FlexBox 
@@ -25,6 +27,8 @@
         marginRight={marginRight}
         marginLeft={marginLeft}
         marginBottom={marginBottom}
+        backgroundColor={backgroundColor}
+        width={width}
         >
     
     <slot />

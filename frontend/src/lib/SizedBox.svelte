@@ -1,6 +1,6 @@
 <script lang="ts">
-    export let width: string | number = "100%";
-    export let height: string | number = "100%";
+    export let width: string | number = "unset";
+    export let height: string | number = "unset";
     export let backgroundColor: string = "unset";
     export let borderRadius: string | number= "unset";
 </script>
