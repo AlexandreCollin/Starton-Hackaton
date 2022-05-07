@@ -11,7 +11,7 @@
         password: ""
     };
     let passwordConfirmed: string = "";
-
+    let error: string = "";
 </script>
 
 <SizedBox backgroundColor=white width={500} height={670} marginTop=95px borderRadius=25px>
@@ -26,11 +26,14 @@
             <input class="input-style" id="passwordConfirmer" bind:value={passwordConfirmed} type="password">
             <label class="fst-label" for="wallet">Wallet address</label>
             <input class="input-style" id="wallet" bind:value={user.wallet} type="text">
+            {#if error.length > 0}
+                <small>{error}</small>
+            {/if}
             <button class="button-style" on:click={() => {
             if (user.pseudo === "" || user.wallet === "" || user.password === "" || passwordConfirmed === "") {
-                // faire une alert
+                error = "A field is empty."
             } else if (user.password !== passwordConfirmed) {
-                // faire une alter
+                error = "Password and Confirm Password must be same.";
             } else {
                 http.register(user);
             }
