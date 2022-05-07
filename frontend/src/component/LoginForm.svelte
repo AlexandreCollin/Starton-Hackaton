@@ -16,12 +16,12 @@
     <SizedBox backgroundColor="black" borderRadius=100px width={150} height={150} marginLeft=175px marginTop=50px/>
     <Center>
             <Column>
-                <label class="fst-label" for="pseudo">Wallet</label>
+                <label class="fst-label" for="pseudo">Wallet address</label>
                 <input class="input-style" id="pseudo" bind:value={user.wallet} type="text">
                 <label class="fst-label" for="password">Password</label>
-                <input class="input-style" id="password" bind:value={user.password} type="text">
+                <input class="input-style" id="password" bind:value={user.password} type="password">
                 {#if empty}
-                    <small style="color:red;">A field is empty</small>
+                    <small class="small-error-message">A field is empty.</small>
                 {/if}
                 <button class="button-style" on:click={() => {
                     if (user.wallet === "" || user.password === "") {
@@ -29,11 +29,27 @@
                     } else
                     http.login(user);
                 }}>Connexion</button>
+                <small class="small-register-message">
+                    <a href="/register">
+                        Not registered yet ?
+                    </a>
+                </small>
             </Column>
     </Center>
 </SizedBox>
 
 <style>
+    .small-register-message {
+        color: rgb(0, 85, 128);
+        margin-left: 80px;
+        margin-top: 5px;
+        font-size: 15px;
+    }
+    .small-error-message {
+        color: red;
+        margin-left: 50px;
+        margin-top: 5px;
+    }
     .fst-label {
         margin-top: 50px;
         margin-left: 50px;
@@ -48,7 +64,7 @@
     }
     .button-style {
         background-color: black;
-        margin-top: 90px;
+        margin-top: 70px;
         margin-left: 75px;
         color: white;
         cursor: pointer;
