@@ -4,7 +4,7 @@
     import LoginForm from '../../component/LoginForm.svelte'
 </script>
 
-<Center>
+<Center backgroundColor="yellow">
     <LoginForm />
 </Center>
 
