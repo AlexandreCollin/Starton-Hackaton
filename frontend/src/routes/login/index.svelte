@@ -1,9 +1,11 @@
 <script lang="ts">
-    import LoginForm from '../../component/LoginForm.svelte'
+    import Center from '../../lib/Center.svelte';
+    import LoginForm from '../../component/LoginForm.svelte';
 </script>
 
-
-<LoginForm />
+<Center>
+    <LoginForm />
+</Center>
 
 <style>
 
