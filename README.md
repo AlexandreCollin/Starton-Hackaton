@@ -9,7 +9,7 @@ La reconnaisance apporté est entièrement décentralisée et dépend de la comm
 
 Nous avons souhaité créer un forum entièrement communautaire dans lequel les utilisateurs répondants aux questions, par le biais de la validation des autres membres, sont rémunérés sous forme de points d'expérience qu'il pourront, par la suite, transformer en NFT non échangeable.
 Ces NFTs ont une valeur purement intellectuelle et servent de "certification" dans le domaine traité.
-Les certifications pourront, grâce à la réputation de la communauté, apporter une plus-value au CV de l'utilisateur.
+Les certifications pourront, grâce à la réputation de la communauté, apporter une plus-value au CV de l'utilisateur (par exemple).
 
 Nous avons utilisé NodeJS pour le frontend et pour le backend, Express et MySQL pour le backend ainsi que Svelte pour le frontend.
 L'API Starton a été utilisée pour réaliser le mint des NFTs.
