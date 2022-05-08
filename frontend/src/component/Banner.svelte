@@ -4,10 +4,10 @@
     import SubBanner from "../component/SubBanner.svelte";
 </script>
 
-<SizedBox backgroundColor="black" width="100%" height={150} borderBottom=solid borderBottomColor="rgb(203, 203, 2)">
+<SizedBox backgroundColor="black" width="100%" height={150} borderBottom="solid" borderBottomColor="rgb(203, 203, 2)">
     <Row justifyContent="space-between">
-        <h1 class="title">Frames.</h1>
-        <button class="button-sign">Sign in</button>
+        <a class="title" href="/">Frames.</a>
+        <button class="button-sign" on:click={() => {window.location.href='/login'}}>Sign in</button>
     </Row>
 </SizedBox>
 <SubBanner />
@@ -15,9 +15,11 @@
 <style>
     .title {
         color: white;
+        font-weight: bold;
         margin-top: 55px;
         margin-left: 40px;
         font-size: 35px;
+        text-decoration: none;
     }
     .button-sign {
         background-color:rgb(203, 203, 2);
