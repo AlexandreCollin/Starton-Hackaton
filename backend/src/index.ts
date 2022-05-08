@@ -11,6 +11,14 @@ const HOST: string = process.env.HOST || "http://127.0.0.1";
 
 app.use(express.json());
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, content-type, authorization');
+    res.setHeader('Access-Control-Allow-Credentials', "true");
+    next();
+});
+
 app.use((req, _, next) => {
     const client = req.socket.remoteAddress?.split(':', 4)[3];
     console.log(client + ": " + req.method + " " + req.originalUrl);
