@@ -25,6 +25,8 @@ Pré-requis:
 
 Etapes:
   - Utiliser le `dump.sql` qui se trouve dans le dossier `backend`
+  - commande `npm start` dans le dossier backend
+  - commande `npm run dev` dans dans le dossier frontend
 
 ## Équipe et commentaires
 
