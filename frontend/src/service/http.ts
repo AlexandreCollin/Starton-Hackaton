@@ -3,8 +3,8 @@ import type { LoginUser, RegisterUser } from '../models/user';
 
 type Http = {
     http: any,
-    login: (user: LoginUser) => Promise<Boolean>,
-    register: (user: RegisterUser) => Promise<Boolean>,
+    login: (user: LoginUser) => Promise<boolean>,
+    register: (user: RegisterUser) => Promise<boolean>,
     token: string,
 };
 

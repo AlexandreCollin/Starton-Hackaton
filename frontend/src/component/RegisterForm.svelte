@@ -35,8 +35,12 @@
             } else if (user.password !== passwordConfirmed) {
                 error = "Password and Confirm Password must be same.";
             } else {
-                const value = await http.register(user);
-                console.log(value);
+                if(await http.register(user)) {
+                    window.location.href = "/";
+                }
+                else {
+                    error = "Error";
+                }
             }
         }}>Create account</button>
         <small class="small-login-message">
