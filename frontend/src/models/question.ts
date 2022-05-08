@@ -1,6 +1,7 @@
 type Question = {
     owner: string,
-    title: string
+    title: string,
+    problemDescription: string
 };
 
 export default Question;
