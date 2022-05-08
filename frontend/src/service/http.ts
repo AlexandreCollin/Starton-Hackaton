@@ -9,16 +9,17 @@ type Http = {
 };
 
 const http: Http = {
-    http: axios.create({baseURL: "127.0.0.1:8080"}),
+    http: axios.create({baseURL: "http://127.0.0.1:8080"}),
     login: async (user: LoginUser) => {
-        const response = await axios.post('/login', user);
+        const response = await http.http.post('/login', user);
         if (response.status !== 200)
             return false;
         http.token = response.data;
         return true;
     },
     register: async (user: RegisterUser) => {
-        const response = await axios.post('/register', user);
+        const response = await http.http.post('/register', user);
+        console.log(response.data);
         if (response.status !== 200)
             return false;
         http.token = response.data;

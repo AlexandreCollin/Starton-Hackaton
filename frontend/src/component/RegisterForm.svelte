@@ -29,13 +29,14 @@
             {#if error.length > 0}
                 <small>{error}</small>
             {/if}
-            <button class="button-style" on:click={() => {
+            <button class="button-style" on:click={ async () => {
             if (user.pseudo === "" || user.wallet === "" || user.password === "" || passwordConfirmed === "") {
                 error = "A field is empty."
             } else if (user.password !== passwordConfirmed) {
                 error = "Password and Confirm Password must be same.";
             } else {
-                http.register(user);
+                const value = await http.register(user);
+                console.log(value);
             }
         }}>Create account</button>
         <small class="small-login-message">
