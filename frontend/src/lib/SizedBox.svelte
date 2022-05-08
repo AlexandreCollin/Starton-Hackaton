@@ -11,6 +11,11 @@
     export let borderBottomColor: string | number = "unset";
     export let borderBottomWidth: string | number = "unset";
     export let paddingTop: string | number = "unset";
+    export let paddingBottom: string | number = "unset";
+    export let paddingRight: string | number = "unset";
+    export let paddingLeft: string | number = "unset";
+    export let padding: string | number = "unset";
+    export let overflowY: string = "unset";
 </script>
 
 <div style="
@@ -26,6 +31,11 @@
             border-bottom-color: {borderBottomColor};
             border-bottom-width: {borderBottomWidth};
             padding-top: {typeof paddingTop === "string" ? paddingTop : paddingTop + "px"};
+            padding-right: {typeof paddingRight === "string" ? paddingRight : paddingRight + "px"};
+            padding-left: {typeof paddingLeft === "string" ? paddingLeft : paddingLeft + "px"};
+            padding-bottom: {typeof paddingBottom === "string" ? paddingBottom : paddingBottom + "px"};
+            padding: {typeof padding === "string" ? padding : padding + "px"};
+            overflow-y:{overflowY};
             ">
         <slot />
 </div>

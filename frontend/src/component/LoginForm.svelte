@@ -6,6 +6,7 @@
     import http from '../service/http';
     import Margin from '../lib/Margin.svelte';
     import Alignement from '../lib/Alignement.svelte';
+import Banner from './Banner.svelte';
 
     let user: LoginUser = {
         wallet: "",
@@ -13,6 +14,8 @@
     };
     let empty: boolean = false;
 </script>
+
+<Banner />
 
 <Margin marginTop={100}>
     <SizedBox backgroundColor=white width={500} height={670} borderRadius=25px>

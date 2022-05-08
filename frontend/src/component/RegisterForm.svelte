@@ -2,8 +2,10 @@
     import SizedBox from '../lib/SizedBox.svelte';
     import Center from '../lib/Center.svelte';
     import Column from '../lib/Column.svelte';
+    import Margin from '../lib/Margin.svelte';
     import type { RegisterUser } from '../models/user';
-    import http from '../service/http'
+    import http from '../service/http';
+    import Banner from './Banner.svelte';
     
     let user: RegisterUser = {
         wallet: "",
@@ -14,43 +16,47 @@
     let error: string = "";
 </script>
 
-<SizedBox backgroundColor=white width={500} height={670} marginTop=95px borderRadius=25px>
-    <SizedBox backgroundColor="black" borderRadius=100px width={150} height={150} marginLeft=175px marginTop=50px/>   
-    <Center>
-        <Column>
-            <label class="fst-label" for="pseudo">Pseudo</label>
-            <input class="input-style" id="pseudo" bind:value={user.pseudo} type="text">
-            <label class="fst-label" for="password">Password</label>
-            <input class="input-style" id="password" bind:value={user.password} type="password">
-            <label class="fst-label" for="passwordConfirmed">Confirm password</label>
-            <input class="input-style" id="passwordConfirmer" bind:value={passwordConfirmed} type="password">
-            <label class="fst-label" for="wallet">Wallet address</label>
-            <input class="input-style" id="wallet" bind:value={user.wallet} type="text">
-            {#if error.length > 0}
-                <small>{error}</small>
-            {/if}
-            <button class="button-style" on:click={ async () => {
-            if (user.pseudo === "" || user.wallet === "" || user.password === "" || passwordConfirmed === "") {
-                error = "A field is empty."
-            } else if (user.password !== passwordConfirmed) {
-                error = "Password and Confirm Password must be same.";
-            } else {
-                if(await http.register(user)) {
-                    window.location.href = "/";
+<Banner />
+
+<Margin marginTop={100}>
+    <SizedBox backgroundColor=white width={500} height={670} borderRadius=25px>
+        <SizedBox backgroundColor="black" borderRadius=100px width={150} height={150} marginLeft=175px marginTop=50px/>   
+        <Center>
+            <Column>
+                <label class="fst-label" for="pseudo">Pseudo</label>
+                <input class="input-style" id="pseudo" bind:value={user.pseudo} type="text">
+                <label class="fst-label" for="password">Password</label>
+                <input class="input-style" id="password" bind:value={user.password} type="password">
+                <label class="fst-label" for="passwordConfirmed">Confirm password</label>
+                <input class="input-style" id="passwordConfirmer" bind:value={passwordConfirmed} type="password">
+                <label class="fst-label" for="wallet">Wallet address</label>
+                <input class="input-style" id="wallet" bind:value={user.wallet} type="text">
+                {#if error.length > 0}
+                    <small>{error}</small>
+                {/if}
+                <button class="button-style" on:click={ async () => {
+                if (user.pseudo === "" || user.wallet === "" || user.password === "" || passwordConfirmed === "") {
+                    error = "A field is empty."
+                } else if (user.password !== passwordConfirmed) {
+                    error = "Password and Confirm Password must be same.";
+                } else {
+                    if(await http.register(user)) {
+                        window.location.href = "/";
+                    }
+                    else {
+                        error = "Error";
+                    }
                 }
-                else {
-                    error = "Error";
-                }
-            }
-        }}>Create account</button>
-        <small class="small-login-message">
-            <a href="/login">
-                Already registered ?
-            </a>
-        </small>
-        </Column>
-    </Center>
-</SizedBox>
+            }}>Create account</button>
+            <small class="small-login-message">
+                <a href="/login">
+                    Already registered ?
+                </a>
+            </small>
+            </Column>
+        </Center>
+    </SizedBox>
+</Margin>
 
 <style>
     .fst-label {

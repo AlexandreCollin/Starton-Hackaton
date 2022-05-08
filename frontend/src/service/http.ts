@@ -1,11 +1,12 @@
 import axios from 'axios';
-import type { LoginUser, RegisterUser } from '../models/user';
+import type { LoginUser, RegisterUser, User } from '../models/user';
 
 type Http = {
     http: any,
     login: (user: LoginUser) => Promise<boolean>,
     register: (user: RegisterUser) => Promise<boolean>,
     token: string,
+    createNft: (user: string) => Promise<boolean>
 };
 
 const http: Http = {
@@ -26,6 +27,12 @@ const http: Http = {
         return true;
     },
     token: "",
+    createNft: async (wallet: string) => {
+        const response = await http.http.post('/nft/baby-sponge-bob/', wallet);
+        if (response.status !== 200)
+            return false;
+        return true;
+    }
 };
 
 export default http;

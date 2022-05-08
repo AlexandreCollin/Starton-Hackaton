@@ -1,31 +1,25 @@
 <script lang="ts">
     import SizedBox from '$lib/SizedBox.svelte';
     import Center from '$lib/Center.svelte';
-    // import Divider from '$lib/Divider.svelte';
-    import type { Question } from '../models/question';
-
-    let questions: Question = {
-        owner: "Didier",
-        title: "Android RecyclerView only contain one item after adding items got from asynchronous retrofit calls ?",
-        problemDescription: "Quos repentes omnibus cum ait nihil ita arduis obtruncatis ancoralia sentirent avertebant eisdem iniectantes montibus repentes sese parcendo quae sunt cedentium ancoralia opinantibus cedentium arduis noctes in adsistebant splendore nullis diu latebrosis ut somnum luna degressi velut sunt ideoque gradu aviditate nauticos quadrupedo etiam quae sentirent seseque sentirent Tullius cum opimas merces gradu aliquando ubi et non cum ait merces et cedentium confinia incendente per latebrosis effusos cedentium etiam per etiam iniectantes occultantes confinia Tullius viis homines cornuta merces non sentirent appeterent merces et splendore degressi arduis montibus in impeditis nondum turbinis ulli effusos noctes confinia in revertuntur sentirent latebrosis."
-    };
+    import { questions } from '../models/question';
+    import type Question from 'src/models/question';
 </script>
 
 <Center>
-    <SizedBox backgroundColor="grey" width="75%" >
-        {#each Array(10) as _, i}
+    <SizedBox backgroundColor="grey" width="75%" borderRadius={25} padding={20}>
+        {#each questions as question}
             <div class="box-question">
                 <div class="user-avis">
-                    <span class="interest">Interest :1276</span>
+                    <span class="interest">Interest: 1276</span>
                     <span style="color: green;">↑</span>
-                    <p class="interest">Last hour view :1276</p>
+                    <p class="interest">Last hour view: 1276</p>
                     <hr width="90%">
-                    <p class="username">{questions.owner}</p>
+                    <p class="username">{question.owner}</p>
                 </div>
                 <hr height="100%">
                 <div class="title-description" >
-                    <a class="text-question" href="/question">{questions.title}</a>
-                    <p class="text-description">{questions.problemDescription}</p>
+                    <a class="text-question" href="/question/{question.id}">{question.title}</a>
+                    <p class="text-description">{question.description}</p>
                 </div>
             </div>
         {/each}
@@ -42,10 +36,11 @@
         border-color: black;
         border-radius: 7px;
         justify-content: start;
+        transition: box-shadow 0.1s ease-in-out;
     }
     .box-question:hover {
-        border-color: #EEEE00;
-        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        transition: box-shadow 0.2s ease-in-out;
+        box-shadow: rgba(0, 0, 0, 0.3) 2px 19px 38px, rgba(0, 0, 0, 0.22) 2px 15px 12px;
     }
     .user-avis {
         padding-top: 30px;
@@ -62,7 +57,7 @@
         font-size: 25px;
     }
     .text-question:hover {
-        text-shadow: #EEEE00 0 0 10px;
+        /* text-shadow: #EEEE00 0 0 10px; */
         cursor: pointer;
     }
     .title-description {

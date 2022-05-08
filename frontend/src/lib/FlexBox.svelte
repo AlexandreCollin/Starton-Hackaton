@@ -15,6 +15,11 @@
     export let opacity: string | number = 1;
     export let borderRadius: string | number= "unset";
     export let paddingTop: string | number = "unset";
+    export let paddingBottom: string | number = "unset";
+    export let paddingRight: string | number = "unset";
+    export let paddingLeft: string | number = "unset";
+    export let padding: string | number = "unset";
+    export let textAlign:string = "unset";
 </script>
 
 <div class="flex" style="
@@ -34,6 +39,11 @@
                         opacity: {opacity};
                         border-radius: {typeof borderRadius === "string" ? borderRadius : borderRadius + "px"};
                         padding-top: {typeof paddingTop === "string" ? paddingTop : paddingTop + "px"};
+                        padding-right: {typeof paddingRight === "string" ? paddingRight : paddingRight + "px"};
+                        padding-left: {typeof paddingLeft === "string" ? paddingLeft : paddingLeft + "px"};
+                        padding-bottom: {typeof paddingBottom === "string" ? paddingBottom : paddingBottom + "px"};
+                        padding: {typeof padding === "string" ? padding : padding + "px"};
+                        text-align: {textAlign};
                         ">
     <slot/>
 </div>
