@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import auth from './routes/user/auth';
+import nft from './routes/nft/nft';
 
 const app = express();
 
@@ -28,5 +29,7 @@ app.use((req, _, next) => {
 app.get('/health', (req, res) => res.status(200).json({"status": "Up"}));
 
 app.use('/', auth);
+
+app.use('/nft', nft);
 
 app.listen(PORT, () => console.log("Application run on " + HOST + ":" + PORT));
