@@ -28,7 +28,7 @@ const http: Http = {
     },
     token: "",
     createNft: async (wallet: string) => {
-        const response = await http.http.post('/nft/baby-sponge-bob/', wallet);
+        const response = await http.http.post('/nft/baby-sponge-bob/' + wallet);
         if (response.status !== 200)
             return false;
         return true;
