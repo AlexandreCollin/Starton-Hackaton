@@ -7,7 +7,7 @@ const app = express();
 
 dotenv.config();
 
-const PORT: string = process.env.PORT || "3000";
+const PORT: string = process.env.PORT || "8080";
 const HOST: string = process.env.HOST || "http://127.0.0.1";
 
 app.use(express.json());
